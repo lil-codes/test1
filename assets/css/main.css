@@ -328,10 +328,6 @@ body {
   background-color: #ebe8e8;
   line-height: 1.5;
   font-size: 1rem;
-  display: grid;
-  transition: all 0.5s;
-  -webkit-user-select: none;
-          user-select: none;
 }
 
 .wrapper {
