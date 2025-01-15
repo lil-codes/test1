@@ -1,0 +1,35 @@
+
+
+//320px smallest devices
+$xs: 20em;
+//512px - very small devices
+$xm: 29.9375em;
+//768px -  small devices
+$sm: 48em;
+//1024px - medium devices
+$md: 61.9375em;
+//1440px - large devices
+$lg: 90em;
+//1920px - FullHD and large
+$xx: 120em;
+
+// breakpoints
+$breakpoints: (
+    xs: $xs,
+    xm: $xm,
+    sm: $sm,
+    md: $md,
+    lg: $lg,
+    xx: $xx,
+);
+
+$safe-padding: 20px;
+$safe-padding_min: 20px;
+
+/* Colors */
+
+$white: #FFFFFF;
+$black: #292929;
+$semi-black: #333333;
+$silver: #ebe8e8;
+$simple-silver: #737373;

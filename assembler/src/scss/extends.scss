@@ -1,0 +1,6 @@
+@use "variables";
+@use "mixins";
+
+%basic-shadow {
+    box-shadow: rgb(30 38 52) 0px 18px 50px -10px;
+}

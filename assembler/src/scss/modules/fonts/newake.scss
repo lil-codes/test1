@@ -1,0 +1,15 @@
+@mixin load-font($name, $path, $weight: 400, $style: normal) {
+  @font-face {
+    font-family: $name;
+    src: local($name),
+         url("#{$path}.woff2") format("woff2"),
+         url("#{$path}.ttf") format("truetype");
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+    text-rendering: optimizeSpeed;
+  }
+}
+
+@include load-font("Newake", "../../assets/fonts/newake/newake-regular", 400);
+

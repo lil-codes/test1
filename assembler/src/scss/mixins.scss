@@ -1,0 +1,50 @@
+@use "sass:map";
+@use "variables" as *;
+
+@mixin break($size) {
+    @media (min-width: map.get($breakpoints, $size)) {
+        @content;
+    }
+}
+
+@mixin custom-table {
+    @for $i from 1 through $grid-columns {
+        .col-#{$i} {
+            grid-column: span $i;
+        }
+
+        @each $breakpoint, $size in $breakpoints {
+            @media (min-width: map.get($breakpoints, $breakpoint)) {
+                .col-#{$breakpoint}-#{$i} {
+                    grid-column: span $i;
+                }
+            }
+        }
+    }
+
+    .grid {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        @media (min-width: map.get($breakpoints, sm)) {
+            grid-template-columns: repeat(#{$grid-columns}, 1fr);
+        }
+    }
+
+    @for $i from 0 through $gap-steps {
+        $gap-size: $i * 10px;
+
+        .gap-#{$i} {
+            gap: $gap-size;
+        }
+
+        @each $breakpoint, $size in $breakpoints {
+            @media (min-width: map.get($breakpoints, $breakpoint)) {
+                .gap-#{$breakpoint}-#{$i} {
+                    gap: $gap-size;
+                }
+            } 
+        }
+    } 
+}

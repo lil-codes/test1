@@ -1,0 +1,301 @@
+@use "variables" as *;
+@use "mixins" as *;
+@use "extends" as *;
+
+@use "modules/fonts/newake";
+
+//  @use "node_modules/normalize-scss/sass/normalize" as normalize;
+@import "node_modules/normalize.css/normalize";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+body {
+    font-family: "Newake", sans-serif;
+    background-color: $silver;
+    line-height: 1.5;
+    font-size: 1rem; 
+    display: grid;
+    transition: all .5s;
+    user-select: none;
+} 
+
+.wrapper {
+    max-width: 808px;
+    background-color: $white;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    border-radius: 10px;
+}
+
+.container {
+    padding-inline: $safe-padding;
+
+    &_header {
+        padding-inline: 47px;
+    }
+}
+
+a {
+    text-decoration: none;
+    &:hover {
+        transition: color 0.2s ease-in-out;
+    }
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+}
+
+h1 {
+    @include break(sm) {
+        font-size: 2.75rem;
+    }
+
+    @include break(md) {
+        font-size: 3.625rem;
+    }
+
+    @include break(lg) {
+        font-size: 4rem;
+    }
+}
+
+img {
+    max-inline-size: 100%;
+    height: auto;
+}
+
+.main-header {
+    padding-block-start: 1.5625rem;
+    padding-block-end: 0.9375rem;
+    border-block-end: 1px solid $simple-silver;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__link {
+        font-family: "Newake", sans-serif;
+        color: $black;
+        font-size: 1.0519rem;
+        line-height: 1;
+        font-style: normal;
+        letter-spacing: -0.05rem;
+        font-weight: 400;
+    }
+}
+
+.menu-button {
+    width: 0.875rem;
+    cursor: pointer;
+    span {
+        display: block;
+        inline-size: 100%;
+        background-color: $black;
+        min-block-size: 0.0731rem;
+        margin-block-end: 3px;
+    }
+}
+
+.icon {
+    &::after {
+        content: "";
+        display: inline-block;
+        background-size: cover;
+        background-repeat: no-repeat;
+        block-size: 1rem;
+        inline-size: 1rem;
+    }
+
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+/* Promo section*/
+
+.promo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-block-start: 3.8862rem;
+    position: relative; 
+ 
+    &::before {
+        content: "";
+        position: absolute;
+        background-image: url(../../assets/images/hand-with-flower.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        inset-inline-end: 0;
+        inline-size: 430px;
+        block-size: 241px;
+        inset-block-start: -55px;
+        user-select: none; 
+  
+        @supports (background-image: url(image.webp)) {
+            background-image: url(../../assets/images/hand-with-flower.webp);
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        background-image: url(../../assets/images/hand-left.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        inset-inline-start: 0;
+        inline-size: 374px;
+        block-size: 210px;
+        inset-block-end: 50px;
+        user-select: none;
+
+        @supports (background-image: url(image.webp)) {
+            background-image: url(../../assets/images/hand-left.webp);
+        }
+    }
+}
+
+.styled-title {
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+    position: relative;
+    margin-block-end: 4.1725rem;
+
+    &__text {
+        max-width: 25.2931rem;
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            background-image: url(../../assets/images/flower-moon.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            inline-size: 4.1494rem;
+            block-size: 4.3244rem;
+            inset-inline-start: 0;
+            transform: translateX(calc(-100% - 1.0625rem)) translateY(4.125rem);
+            inset-block-start: 0;
+            display: none;
+
+            @include break(sm) {
+                display: block;
+            }
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            background-image: url(../../assets/images/flower-star.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            inline-size: 6.0194rem;
+            block-size: 6.0194rem;
+            inset-inline-end: 0;
+            inset-block-end: 0;
+            transform: translateX(calc(2.5rem)) translateY(2.5rem);
+            display: none;
+
+            @include break(sm) {
+                display: block;
+            }
+        }
+
+        h1 {
+            font-family: "Newake", sans-serif;
+            word-spacing: .625rem; 
+            font-size: 7.5969rem;
+            line-height: 1;
+            font-weight: 400;
+            letter-spacing: -0.06em;
+            text-align: center;
+            background-image: url(../../assets/images/nature-background.jpg);
+            background-size: contain;
+            background-position: center;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            mask-image: linear-gradient(black, black);
+            -webkit-mask-image: linear-gradient(black, black);
+            text-transform: uppercase;
+        }
+    }
+}
+
+/* Social icons */
+
+.social-bars {
+    position: relative;
+    display: flex;
+    gap: 1.0225rem;
+    line-height: 1;
+    margin-block-end: 0.91rem;
+    z-index: 2;
+
+    &__item {
+        inline-size: 24.31px;
+        block-size: 24.31px;
+    }
+
+    &::before {
+        content: "";
+        background-image: url(../../assets/images/wawes.png);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 124.82px;
+        height: 25.24px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateX(-221px);
+        display: none;
+
+        @include break(sm) {
+            display: block;
+        }
+    }
+
+    &__icon {
+        &::after {
+            inline-size: 100%;
+            block-size: 100%;
+        }
+    }
+}
+
+.instagram-icon {
+    &::after {
+        background-image: url(../../assets/images/icons/instagram.svg);
+    }
+}
+
+.facebook-icon {
+    &::after {
+        background-image: url(../../assets/images/icons/facebook.svg);
+    }
+}
+
+.youtube-icon {
+    &::after {
+        background-image: url(../../assets/images/icons/youtube.svg);
+    }
+}
+
+.tiktok-icon {
+    &::after {
+        background-image: url(../../assets/images/icons/tiktok.svg);
+    }
+}
+
+.twitter-icon {
+    &::after {
+        background-image: url(../../assets/images/icons/twitter.svg);
+    }
+}
